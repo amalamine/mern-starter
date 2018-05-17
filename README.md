@@ -1,4 +1,4 @@
-# Hajj MVP: Agency Representative Portal
+# MERN Starter
 
 ## Running in dev natively
 
@@ -23,32 +23,6 @@ To run a development environment, you can use the `start-dev` command. This will
   ```
   docker-compose up
   ```
-
-## Configuration (Optional)
-
-By default, the server will expect to connect to a MongoDB instance running on localhost:27017. However, you can customize the environment to use different values for the MongoDB host. To do that, you can create a `.env` file for specifying credential information for MongoDB.
-
-Create a new file called `.env`, with the following YAML:
-
-```yaml
-MONGO_URL=mongodb://localhost:27017/comments
-MONGO_USER=username
-MONGO_PASSWORD=password
-```
-
-or instead, you can use the equivalent JSON:
-
-```json
-{
-  "mongo": {
-    "url": "mongodb://localhost:27017/comments",
-    "user": "username",
-    "password": "password"
-  }
-}
-```
-
-Where the URL, username, and password are set to your preferences.
 
 ## Docker Development run
 
@@ -214,10 +188,6 @@ service:
   type: NodePort
   containerPort: 3000
   env: production
-services:
-  mongo:
-     url: mongo
-     name: comments
 ```
 
 > replace the namespace with your namespace used when pushing your container. You can change the number of relicaCount too.
