@@ -31,5 +31,5 @@ class Home extends Component {
 }
 
 const mapStateToProps = ({ example }) => { return { example }}
-const mapDispatchToProps = (dispatch) => { return bindActionCreators({ example }, dispatch); }
+const mapDispatchToProps = (dispatch) => { return bindActionCreators({ exampleAction }, dispatch); }
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
