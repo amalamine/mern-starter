@@ -5,9 +5,8 @@ module.exports = function(app) {
 
   router.get('/', function(req, res, next) {
     if (process.env.NODE_ENV === 'production' && !req.session.user) res.redirect('/login');
-    console.log('Getting stored events ')
-    res.send(req.session.events)
+    res.json({message: 'success'})
   });
 
-  app.use("/endpoints/events", router);
+  app.use("/endpoints/example", router);
 }
