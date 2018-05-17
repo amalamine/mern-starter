@@ -1,0 +1,11 @@
+replicaCount: 2
+revisionHistoryLimit: 1
+image:
+  repository: registry.eu-gb.bluemix.net/<namespace>/<image>
+  tag: v1
+  pullPolicy: Always
+service:
+  name: Node
+  type: NodePort
+  containerPort: 3000
+  env: production
