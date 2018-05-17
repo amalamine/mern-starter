@@ -1,12 +1,23 @@
+import '../public/css/styles.css';
+import '../public/css/queries.css';
+import '../public/vendors/css/animate.css';
+import '../public/vendors/css/grid.css';
+import '../public/vendors/css/ionicons.min.css';
+import '../public/vendors/css/normalize.css';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReduxPromise from 'redux-promise';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
+
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 import reducers from './reducers';
 
+import Header from './components/Header';
+import Footer from './components/Footer';
 import Home from './components/Home';
 import Login from './components/Login';
 
@@ -17,9 +28,11 @@ ReactDOM.render(
     <Provider store={createStoreWithMiddleware(reducers)}>
       <Router>
         <div>
+          <Header />
           <Route exact path='/' component={Login} />
           <Route path='/login' component={Login} />
           <Route path='/home' component={Home} />
+          <Footer />
         </div>
       </Router>
   </Provider>

@@ -1,7 +1,7 @@
 {
   "name": "agencyportal",
   "version": "1.0.0",
-  "description": "A portal for Hajj agency representatives",
+  "description": "MERN Starter App",
   "private": true,
   "scripts": {
     "start": "react-scripts start",

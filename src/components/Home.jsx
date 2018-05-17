@@ -8,8 +8,7 @@ import { exampleAction } from '../../src/actions/index';
 class Home extends Component {
 
   componentWillMount(){
-    this.props.getUser();
-    this.props.getEvents();
+    this.props.exampleAction();
   }
 
   componentDidMount(){
@@ -31,5 +30,4 @@ class Home extends Component {
 }
 
 const mapStateToProps = ({ example }) => { return { example }}
-const mapDispatchToProps = (dispatch) => { return bindActionCreators({ exampleAction }, dispatch); }
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, { exampleAction })(Home);
