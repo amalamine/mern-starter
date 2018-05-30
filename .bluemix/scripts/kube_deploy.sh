@@ -20,7 +20,6 @@ else
 fi
 
 echo "Configuring Tiller (Helm's server component)"
-helm init --upgrade
 kubectl rollout status -w deployment/tiller-deploy --namespace=kube-system
 helm version
 
