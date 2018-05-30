@@ -7,16 +7,6 @@ class Login extends Component {
     super(props);
   }
 
-  componentDidMount(){
-      const loader = document.getElementById('loader')
-      loader.classList.remove('hidden')
-      if(loader){
-        setTimeout(() => {
-          loader.classList.add('hidden')
-        }, 2000)
-      }
-  }
-
   renderField(field){
     return (
       <div>

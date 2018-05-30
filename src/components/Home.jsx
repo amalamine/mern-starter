@@ -11,16 +11,6 @@ class Home extends Component {
     this.props.exampleAction();
   }
 
-  componentDidMount(){
-      const loader = document.getElementById('loader')
-      if(loader){
-        loader.classList.remove('hidden')
-        setTimeout(() => {
-          loader.classList.add('hidden')
-        }, 2000)
-      }
-  }
-
   render() {
     return (
       <div className="main-container" id="home">

@@ -2,41 +2,41 @@
 
 ## Running in dev natively
 
-To run a development environment, you can use the `start-dev` command. This will start up a development web server on port 3000, and a nodemon-watched API server on port 3100. These development servers will automatically reload if changes are made to the source.
+To run a development environment, you can use the `start-dev` command. This will start up a development web server on port 3000, and a nodemon-watched API server on port 3001. These development servers will automatically reload if changes are made to the source.
 
   - Install dependencies with:
 
     ```
-    yarn
+    npm install
     ```
 
   - Start the development environment:
 
     ```
-    yarn start-dev
+    npm run start-dev
     ```
 
-## Docker Compose
+## Running in prod natively
 
-  If you use Docker and Docker Compose, you can start the entire project with:
+To run a production environment, you can use the `start-dev` command. This will start up a production web server on port 4000.
 
-  ```
-  docker-compose up
-  ```
+  - Install dependencies with:
 
-## Docker Development run
+    ```
+    npm install
+    ```
 
-If you would like to run the development tools inside of a docker container, you can set up a local Docker development environment by building the image:
+  - Build with:
 
-```
-docker build -f Dockerfile-tools -t mern-example:latest .
-```
+    ```
+    npm run build
+    ```
 
-And running the image:
+  - Start the development environment:
 
-```
-docker run -v ${PWD}:/usr/app -p 3000:3100 -t mern-example:latest
-```
+    ```
+    npm run start-prod
+    ```
 
 ## Kubernetes
 
@@ -59,13 +59,13 @@ eval $(minikube docker-env)
 Build your Docker image and give it a tag:
 
 ```
-docker build -t mern-example:latest .
+docker build -t mern-starter:latest .
 ```
 
-Install the Helm chart located in `helm/mern` on to your cluster:
+Install the Helm chart located in `chart/starter` on to your cluster:
 
 ```
-helm install helm/mern
+helm install chart/starter
 ```
 
 If using minikube, you will need to add port forwarding to be able to view your application:
@@ -79,16 +79,16 @@ kubectl port-forward mern-deployment-789311257-36s62 32111:3000
 
 Open your browser to http://localhost:32111
 
-If you want to update your application, you can build a new image with a new version tag, e.x. `docker build -t mern:v2 .`. Update the version tag in `helm/mern/values.yml`.
+If you want to update your application, you can build a new image with a new version tag, e.x. `docker build -t mern:v2 .`. Update the version tag in `chart/starter/values.yml`.
 
 Then, roll out a new release with:
 
 ```
-helm upgrade <deployment_name> helm/mern
+helm upgrade <deployment_name> chart/starter
 helm upgrade limping-bee .
 ```
 
-### On Bluemix Kubernetes
+### On IBM Cloud Kubernetes
 
 ***Build the Docker image***
 
@@ -174,7 +174,7 @@ export KUBECONFIG=/home/rfdickerson/.bluemix/plugins/container-service/clusters/
 kubectl get nodes
 ```
 
-4. Edit your `helm/mern/Values.yaml` with your namespace
+4. Edit your `chart/starter/Values.yaml` with your namespace
 
 ```
 replicaCount: 3
@@ -201,7 +201,7 @@ helm init
 6. Install the Helm chart
 
 ```
-helm install helm/mern
+helm install chart/starter
 ```
 
 7. If you need to upgrade an existing deployment, you can use `helm upgrade`.
@@ -220,5 +220,5 @@ elegant-puma 	5       	Wed Jun 28 12:01:58 2017	DEPLOYED	mern-0.0.1	default
 then to update the deployment, use:
 
 ```
-helm upgrade elegant-puma helm/mern
+helm upgrade elegant-puma chart/starter
 ```
