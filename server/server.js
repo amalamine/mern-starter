@@ -12,8 +12,6 @@ const fs = require('fs');
 const config = require(`${__dirname}/config/env`)[process.env.NODE_ENV];
 const staticDir = process.env.STATIC_DIR || 'build';
 
-console.log('Connecting to ', config.mongo)
-
 let app = express();
 
 app.use(bodyParser.json());
@@ -33,8 +31,6 @@ app.use(session({
         ephemeral: true
     }
 }));
-
-
 
 if (process.env.NODE_ENV === 'production') {
   console.log('Running in prod')
@@ -58,12 +54,11 @@ if (process.env.NODE_ENV === 'development') {
       if (err) throw err;
       if (typeof data === "string") data = JSON.parse(data);
       req.session.user = data.user;
-      req.session.events = data.events;
       next();
     });
-});
+  });
 }
 
 app.listen(config.port, function(){
-  console.log(`agencyportal listening on port ${config.port}`);
+  console.log(`starter listening on port ${config.port}`);
 });
