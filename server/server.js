@@ -59,6 +59,6 @@ if (process.env.NODE_ENV === 'development') {
   });
 }
 
-app.listen(config.port, function(){
+app.listen(config.port, () => {
   console.log(`starter listening on port ${config.port}`);
 });

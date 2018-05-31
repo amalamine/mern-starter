@@ -1,9 +1,9 @@
 var express = require('express');
 
-module.exports = function(app) {
+module.exports = (app) => {
   var router = express.Router();
 
-  router.get('/', function(req, res, next) {
+  router.get('/', (req, res, next) => {
     if (process.env.NODE_ENV === 'production' && !req.session.user) res.redirect('/login');
     res.json({message: 'success'})
   });
