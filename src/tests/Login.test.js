@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Login from '../Login.jsx';
+import Login from '../components/Login.jsx';
 
 it('renders without crashing', () => {
     const div = document.createElement('div');

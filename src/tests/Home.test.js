@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Home from '../Home.jsx';
+import Home from '../components/Home.jsx';
 
 it('renders without crashing', () => {
     const div = document.createElement('div');
