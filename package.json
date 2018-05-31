@@ -20,7 +20,7 @@
     "start-prod": "nf start",
     "build:react": "react-scripts build",
     "test:frontend": "jest",
-    "test:backend": "mocha --timeout 15000"
+    "test:backend": "mocha server/tests --timeout 15000"
   },
   "dependencies": {
     "appmetrics-dash": "^3.3.2",
