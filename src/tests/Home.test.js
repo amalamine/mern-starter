@@ -1,10 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { shallow } from 'enzyme';
 
 import Home from '../components/Home.jsx';
 
 it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Home />, div);
-    ReactDOM.unmountComponentAtNode(div);
+    const wrapped = shallow(<Home/>);
+    expect(wrapped).toBeTruthy();
 })
