@@ -2,21 +2,16 @@ import '../public/css/styles.css';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ReduxPromise from 'redux-promise';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
 
-import reducers from './reducers';
+import Root from './Root';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './components/Home';
 import Login from './components/Login';
 
-const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
-
 ReactDOM.render(
-    <Provider store={createStoreWithMiddleware(reducers)}>
+  <Root>
       <Router>
         <div>
           <Header />
@@ -26,6 +21,7 @@ ReactDOM.render(
           <Footer />
         </div>
       </Router>
-  </Provider>,
-  document.getElementById('root')
+  </Root>
+  , 
+  document.querySelector('#root')
 );
