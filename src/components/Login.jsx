@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
+import * as actions from '../../src/actions/index';
 
 class Login extends Component {
 
-  constructor(props){
-    super(props);
+  onSubmit = formProps => {
+    console.log(this.props.example)
+    this.props.example(formProps);
   }
 
   renderField(field){
@@ -20,9 +24,10 @@ class Login extends Component {
   }
 
   render() {
+    const { handleSubmit } = this.props;
     return (
       <div className="main-container" id="login">
-        <form className="sign-up-form">
+        <form className="sign-up-form" onSubmit={handleSubmit(this.onSubmit)}>
           <Field
             label="Username"
             name="username"
@@ -33,12 +38,14 @@ class Login extends Component {
             name="password"
             component={this.renderField}
           />
+          <button>Login</button>
         </form>
       </div>
     )
   }
 }
 
-export default reduxForm({
-  form: 'LoginForm'
-})(Login);
+export default compose(
+  connect(null, actions),
+  reduxForm({form: 'LoginForm'})
+)(Login);

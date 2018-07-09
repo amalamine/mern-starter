@@ -6,6 +6,9 @@ server/localdev-config.json
 # dependencies
 /node_modules
 
+# environment variables
+.env
+
 # testing
 /coverage
 
