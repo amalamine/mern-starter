@@ -5,7 +5,8 @@ module.exports = (app) => {
 
   router.get('/', (req, res, next) => {
     if (process.env.NODE_ENV === 'production' && !req.session.user) res.redirect('/login');
-    res.json({message: 'success'})
+    console.log('response')
+    res.send(true)
   });
 
   app.use("/endpoints/example", router);

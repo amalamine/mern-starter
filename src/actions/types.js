@@ -1,3 +1,5 @@
 export default {
-  example: 'EXAMPLE'
+  example: 'EXAMPLE',
+  authenticate: 'AUTHENTICATE',
+  authError: 'AUTHENTICATE_ERROR'
 };

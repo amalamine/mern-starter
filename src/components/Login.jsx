@@ -7,8 +7,9 @@ import * as actions from '../../src/actions/index';
 class Login extends Component {
 
   onSubmit = formProps => {
-    console.log(this.props.example)
-    this.props.example(formProps);
+    this.props.authenticate(formProps, () => {
+      this.props.history.push('/home');
+    });
   }
 
   renderField(field){
@@ -45,7 +46,11 @@ class Login extends Component {
   }
 }
 
+function mapStateToProps({ auth }) {
+  return { auth };
+}
+
 export default compose(
-  connect(null, actions),
+  connect(mapStateToProps, actions),
   reduxForm({form: 'LoginForm'})
 )(Login);
